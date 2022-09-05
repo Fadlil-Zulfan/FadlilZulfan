@@ -10,7 +10,14 @@
       <div class="row">
       <div class=col-2></div>
       <div class=col-8>
-          <h1>Form Edit Buku</h1>
+        <section class="event-area section-gap-extra-bottom">
+          <div class="container" style="height: 500px;
+          width: 541px;
+          left: 449px;
+          top: 400px;
+          margin-top:50px;
+          border-radius: 0px;box-shadow: 2px 2px 20px 2px #00000040;">
+          <h1 style="margin-left: 120px">Form Edit Buku</h1>
 
         <form action="{{ route("update", $item->id) }}" method="post">
             @csrf
@@ -42,6 +49,8 @@
               
       </div>
       </div>
+      </div>
+    </section>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>

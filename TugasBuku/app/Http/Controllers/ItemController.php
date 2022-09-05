@@ -14,20 +14,20 @@ use Illuminate\Support\Facades\DB;
 class ItemController extends Controller
 {
     public function index() {
-        // $items=DB::table("items")
-        // ->join("item_types","item.item_type_id","=", "item_types.id")
-        // ->select("items.*", "item_types.name as jenis")
-        // ->paginate();
-        // $item=Item::paginate();
+        $items=Item:: select("items.*", "item_types.name as jenis")
+        ->join("item_types","items.item_type_id","=", "item_types.id")
+        ->orderBy("qty","desc") 
+        ->paginate();
+        $item=Item::paginate();
         
 
         // $items=DB::table("items")
-        // ->join("item_types","item.item_type_id","=", "item_types.id")
-        // ->select(\DB::raw("items.id, items.name, items.qty,items.price(items.qty*items.price)as jumlah"))
+        // ->join("item_types", "items.item_type_id" ,"=", "item_types.id")
+        // ->select(DB::raw("items.id, items.jenis, items.name, items.qty, items.price ,(items.qty * items.price) as jumlah"))
         // ->paginate();
-        $item=Item::paginate(3);
+        // // dd($items);
 
-        return view("items.index", ["items" => $item]);
+        return view("items.table", ["items" => $items]);
     }
 
     public function create() {

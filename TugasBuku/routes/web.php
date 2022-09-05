@@ -3,6 +3,7 @@
 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ItemTypeController;
 
@@ -29,3 +30,4 @@ Route::post("/update/{id}", [ItemController::class, "update"])->name("update");
 Route::delete("/destroy/{id}", [ItemController::class, "destroy"])->name("destroy");
 
 Route::get("/item-types",[ItemTypeController::class,"index"]);
+Route::get('/home', [HomeController::class, 'index'])->name('home');
